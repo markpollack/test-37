@@ -1,0 +1,6 @@
+---
+actions:
+  from: deployment.yaml
+  to: kubernetes/kustomize/overlays/local/deployment.yaml
+  replace: ARTIFACT_ID {{artifactId}}
+---

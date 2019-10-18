@@ -1,0 +1,64 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mysql
+    app.kubernetes.io/name: mysql
+  name: local-mysql
+spec:
+  ports:
+  - port: 3306
+  selector:
+    app: mysql
+    app.kubernetes.io/name: mysql
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: mysql
+    app.kubernetes.io/name: mysql
+  name: local-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+        app.kubernetes.io/name: mysql
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        image: mysql:5.6
+        name: mysql
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: local-mysql
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    volume.alpha.kubernetes.io/storage-class: default
+  labels:
+    app: mysql
+    app.kubernetes.io/name: mysql
+  name: local-mysql
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi

@@ -1,0 +1,11 @@
+# name prefix should corresponse to the profile name as a convention
+namePrefix: local-
+commonLabels:
+  app.kubernetes.io/name: webdemo
+resources:
+#  - deployment.yaml
+#  - service.yaml
+  - github.com/pivotal/kustomize//modules/spring-boot-web-application?ref=v1.0.6
+  - github.com/pivotal/kustomize//modules/spring-boot-task-application?ref=v1.0.0
+  - github.com/pivotal/kustomize//modules/knative-application?ref=v1.0.0
+  - my-custom-shit.yaml
