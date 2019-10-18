@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: webdemo
-          image: docker.io/markpollack/testing:0.0.2
+          image: docker.io/markpollack/testing:0.0.3
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: dev
