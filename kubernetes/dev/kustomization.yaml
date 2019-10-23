@@ -1,4 +1,3 @@
-namePrefix: dev-webdemo-
 commonLabels:
   variant: dev
 commonAnnotations:
