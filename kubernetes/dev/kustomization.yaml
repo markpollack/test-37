@@ -1,4 +1,4 @@
-namePrefix: local-
+namePrefix: dev-
 commonLabels:
   variant: dev
 commonAnnotations:
