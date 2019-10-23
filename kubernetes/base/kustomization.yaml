@@ -2,4 +2,4 @@ namePrefix: webdemo-
 commonLabels:
   app.kubernetes.io/name: webdemo
 resources:
-  - ../../kustomize/modules/lift-spring-boot-starter-web/
+  - github.com/markpollack/kustomize-starters//lift-spring-boot-starter-web?ref=v0.0.1
