@@ -1,4 +1,4 @@
-namePrefix: local-
+namePrefix: local-webdemo
 commonLabels:
   variant: local
 commonAnnotations:

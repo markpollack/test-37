@@ -6,7 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: webdemo
     variant: local
-  name: local-service
+  name: local-webdemoservice
 spec:
   ports:
   - port: 80
@@ -25,7 +25,7 @@ metadata:
   labels:
     app.kubernetes.io/name: webdemo
     variant: local
-  name: local-app
+  name: local-webdemoapp
 spec:
   replicas: 1
   selector:
