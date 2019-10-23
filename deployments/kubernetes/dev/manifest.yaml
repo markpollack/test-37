@@ -5,6 +5,7 @@ metadata:
     note: Hello, I am dev!
   labels:
     app.kubernetes.io/name: webdemo
+    author: markp
     variant: dev
   name: webdemo-service
 spec:
@@ -13,6 +14,7 @@ spec:
     targetPort: 8080
   selector:
     app.kubernetes.io/name: webdemo
+    author: markp
     variant: dev
   sessionAffinity: None
   type: LoadBalancer
@@ -24,6 +26,7 @@ metadata:
     note: Hello, I am dev!
   labels:
     app.kubernetes.io/name: webdemo
+    author: markp
     variant: dev
   name: webdemo-app
 spec:
@@ -31,6 +34,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/name: webdemo
+      author: markp
       variant: dev
   template:
     metadata:
@@ -38,6 +42,7 @@ spec:
         note: Hello, I am dev!
       labels:
         app.kubernetes.io/name: webdemo
+        author: markp
         variant: dev
     spec:
       containers:
