@@ -23,7 +23,7 @@ profiles:
     deploy:
       kubectl:
         manifests:
-          - deployments/kubernetes/local/manifest.yaml
+          - deployments/kubernetes/local/manifest_orig.yaml
 #
 # Will be using k8s yaml files for services
 #
@@ -31,4 +31,4 @@ profiles:
     deploy:
       kubectl:
         manifests:
-          - deployments/kubernetes/local-services/**/manifest.yaml
+          - deployments/kubernetes/local-services/**/manifest_orig.yaml

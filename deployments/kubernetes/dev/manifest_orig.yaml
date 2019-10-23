@@ -1,48 +1,44 @@
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    note: Hello, I am dev!
   labels:
+    app: webdemo
     app.kubernetes.io/name: webdemo
-    variant: dev
-  name: local-service
+  name: local-webdemo
 spec:
   ports:
-  - port: 80
-    targetPort: 8080
+  - name: webdemo
+    port: 8080
   selector:
+    app: webdemo
     app.kubernetes.io/name: webdemo
-    variant: dev
   sessionAffinity: None
   type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    note: Hello, I am dev!
   labels:
     app.kubernetes.io/name: webdemo
-    variant: dev
-  name: local-app
+  name: local-webdemo
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
+      app: webdemo
       app.kubernetes.io/name: webdemo
-      variant: dev
   template:
     metadata:
-      annotations:
-        note: Hello, I am dev!
       labels:
+        app: webdemo
         app.kubernetes.io/name: webdemo
-        variant: dev
     spec:
       containers:
-      - image: docker.io/markpollack/testing:latest
-        imagePullPolicy: Always
-        name: app
+      - env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev
+        image: docker.io/markpollack/testing:0.0.4
+        imagePullPolicy: IfNotPresent
+        name: webdemo
         ports:
         - containerPort: 8080

@@ -1,0 +1,13 @@
+namePrefix: local-
+commonLabels:
+  variant: dev
+commonAnnotations:
+  note: Hello, I am dev!
+images:
+  - name: docker.io/spring/testapp  #used for Kustomize matching
+    newName: docker.io/markpollack/testing
+    newTag: latest
+resources:
+  - ../base
+patchesStrategicMerge:
+  - deployment.yaml  # set pull-policy to Always (to pull latest or snapshots tags), use 2 instances

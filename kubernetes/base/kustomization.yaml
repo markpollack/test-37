@@ -1,0 +1,4 @@
+commonLabels:
+  app.kubernetes.io/name: webdemo
+resources:
+  - ../../kustomize/modules/lift-spring-boot-starter-web/

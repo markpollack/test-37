@@ -2,14 +2,11 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: webdemo
-  labels:
-    app: webdemo
+  name: service
 spec:
   type: LoadBalancer
   sessionAffinity: None
   ports:
     - port: 80
-      name: webdemo
-  selector:
-    app: webdemo
+      targetPort: 8080
+
