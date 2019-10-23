@@ -1,8 +1,8 @@
 commonLabels:
   variant: dev
-  author: markp
 commonAnnotations:
   note: Hello, I am dev!
+  note2: this is another note
 images:
   - name: docker.io/spring/testapp  #used for Kustomize matching
     newName: docker.io/markpollack/testing
