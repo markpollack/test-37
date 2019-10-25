@@ -32,3 +32,19 @@ profiles:
       kubectl:
         manifests:
           - deployments/kubernetes/local-services/**/manifest_orig.yaml
+
+  - name: dev
+    build:
+      artifacts:
+        - image: lift/webdemo
+          jibMaven:
+            module: ""
+            profile: "dev"
+      tagPolicy:
+        gitCommit: {}
+      local:
+        push: false
+    deploy:
+      kubectl:
+        manifests:
+          - deployments/kubernetes/local/manifest_orig.yaml

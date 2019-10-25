@@ -36,6 +36,25 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+				<groupId>pl.project13.maven</groupId>
+				<artifactId>git-commit-id-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>revision</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<dateFormat>yyyyMMdd-HHmmss</dateFormat><!--  human-readable part of the version id -->
+					<dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
+					<generateGitPropertiesFile>false</generateGitPropertiesFile><!-- somehow necessary. otherwise the variables are not available in the pom -->
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -83,7 +102,7 @@
                         </container>
                         <to>
 							<image>docker.io/markpollack/testing</image>
-                            <tags>0.0.5</tags>
+                            <tags>${git.commit.id}</tags>
                         </to>
                     </configuration>
                     <executions>
