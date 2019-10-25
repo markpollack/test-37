@@ -83,7 +83,7 @@
                         </container>
                         <to>
 							<image>docker.io/markpollack/testing</image>
-                            <tags>0.0.4</tags>
+                            <tags>0.0.5</tags>
                         </to>
                     </configuration>
                     <executions>

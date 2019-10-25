@@ -1,8 +1,0 @@
-# name prefix should corresponse to the profile name as a convention
-namePrefix: local-
-commonLabels:
-  app.kubernetes.io/name: mysql
-resources:
-  - mysql-pvc.yaml
-  - mysql-deployment.yaml
-  - mysql-service.yaml
